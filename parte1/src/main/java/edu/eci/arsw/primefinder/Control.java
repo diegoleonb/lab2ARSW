@@ -18,6 +18,12 @@ public class Control extends Thread{
             pft[i] = new PrimeFinderThread(i*data,(i+1)*data,this.primes);
         }
         pft[i] = new PrimeFinderThread(i*data,max + 1,this.primes);
+    }
 
+    @Override
+    public void run(){
+        for(int i= 0;i<threads;i++){
+            pft[i].start();
+        }
     }
 }

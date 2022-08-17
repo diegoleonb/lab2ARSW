@@ -6,8 +6,7 @@ import java.util.List;
 public class PrimeFinderThread extends Thread{
 
 	
-	int a,b;
-	
+	int a,b;	
 	private List<Integer> primes=new LinkedList<Integer>();
 	
 	public PrimeFinderThread(int a, int b, List<Integer> primes) {
@@ -25,9 +24,8 @@ public class PrimeFinderThread extends Thread{
 			}
 		}
 		
-		
 	}
-	
+
 	boolean isPrime(int n) {
 	    if (n%2==0) return false;
 	    for(int i=3;i*i<=n;i+=2) {
@@ -40,8 +38,5 @@ public class PrimeFinderThread extends Thread{
 	public List<Integer> getPrimes() {
 		return primes;
 	}
-	
-	
-	
 	
 }
