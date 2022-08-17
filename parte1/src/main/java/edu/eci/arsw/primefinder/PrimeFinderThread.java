@@ -10,10 +10,11 @@ public class PrimeFinderThread extends Thread{
 	
 	private List<Integer> primes=new LinkedList<Integer>();
 	
-	public PrimeFinderThread(int a, int b) {
+	public PrimeFinderThread(int a, int b, List<Integer> primes) {
 		super();
 		this.a = a;
 		this.b = b;
+		this.primes = primes;
 	}
 
 	public void run(){
