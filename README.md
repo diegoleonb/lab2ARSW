@@ -17,6 +17,7 @@ El procesador pasa de un uso alrededor de 3% a un 70% en todos sus nucleos despu
 
 2. Modifique el programa para que, en lugar de resolver el problema con un solo hilo, lo haga con tres, donde cada uno de éstos hará la tarcera parte del problema original. Verifique nuevamente el funcionamiento, y nuevamente revise el uso de los núcleos del equipo.
 
+Con el programa ejecutando tres hilos se evidencia la presencia de más picos en el uso de los nucleos.
 ![](./img/media/parte1-2.png)
 
 3. Lo que se le ha pedido es: debe modificar la aplicación de manera que cuando hayan transcurrido 5 segundos desde que se inició la ejecución, se detengan todos los hilos y se muestre el número de primos encontrados hasta el momento. Luego, se debe esperar a que el usuario presione ENTER para reanudar la ejecución de los mismo.
@@ -51,12 +52,25 @@ Taller.
 
     b.  Puede utilizarse el método join() de la clase Thread para sincronizar el hilo que inicia la carrera, con la finalización de los hilos de los galgos.
 
+    Despues de sincronizar los hilos, el aviso de los resultados se muestra sólo al final de la carrera y no al inicio como antes.
+    ![](./img/media/parte2-1-1.png)
+    ![](./img/media/parte2-1-2.png)
+
 2.  Una vez corregido el problema inicial, corra la aplicación varias
     veces, e identifique las inconsistencias en los resultados de las
     mismas viendo el ‘ranking’ mostrado en consola (algunas veces
     podrían salir resultados válidos, pero en otros se pueden presentar
     dichas inconsistencias). A partir de esto, identifique las regiones
     críticas () del programa.
+
+    Se logró notar que en algunas ocaciones en el ranking algunos quedaban en la misma posición, incluso habiendo varios ganadores pero sólo mostrando uno en ventana.
+    
+    ![](./img/media/parte2-2-2.png)
+    ![](./img/media/parte2-2-1.png)
+
+    También se notó que los botones de Stop y Continue no funcionan
+    ![](./img/media/parte2-2-3.png)
+
 
 3.  Utilice un mecanismo de sincronización para garantizar que a dichas
     regiones críticas sólo acceda un hilo a la vez. Verifique los
