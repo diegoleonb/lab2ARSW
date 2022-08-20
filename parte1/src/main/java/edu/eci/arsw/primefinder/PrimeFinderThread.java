@@ -8,7 +8,16 @@ public class PrimeFinderThread extends Thread{
 	
 	int a,b;	
 	private List<Integer> primes=new LinkedList<Integer>();
+	private final static int mSegundos = 5000;
+	private boolean wait;
+	private long inicio,fin;
 	
+	/**
+	 * Constructor de la clase
+	 * @param a 
+	 * @param b
+	 * @param primes
+	 */
 	public PrimeFinderThread(int a, int b, List<Integer> primes) {
 		super();
 		this.a = a;
@@ -16,14 +25,34 @@ public class PrimeFinderThread extends Thread{
 		this.primes = primes;
 	}
 
+	/**
+	 * Funcion con el fin de ejecutar el hilo y se detenga una vez haya transcurrido 5 segundos
+	 */
+	@Override
 	public void run(){
-		for (int i=a;i<=b;i++){						
-			if (isPrime(i)){
-				primes.add(i);
-				System.out.println(i);
+		this.inicio = System.currentTimeMillis();
+		this.fin = System.currentTimeMillis();
+		synchronized(this.primes){
+			for (int i=a;i<=b;i++){						
+				if(fin - inicio <= mSegundos){
+					wait = false;
+					if (isPrime(i)){
+						primes.add(i);
+						System.out.println(i);
+						fin = System.currentTimeMillis();
+					}
+				}
+				else{
+					wait = true;
+					System.out.println("Limite de tiempo");
+					try {
+						primes.wait();
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
 			}
 		}
-		
 	}
 
 	boolean isPrime(int n) {
@@ -37,6 +66,18 @@ public class PrimeFinderThread extends Thread{
 
 	public List<Integer> getPrimes() {
 		return primes;
+	}
+
+	public boolean getWait(){
+		return wait;
+	}
+
+	public void setWait(boolean b){
+		this.wait = b;
+	}
+
+	public void setInicio(long inicio){
+		this.inicio = inicio;
 	}
 	
 }
