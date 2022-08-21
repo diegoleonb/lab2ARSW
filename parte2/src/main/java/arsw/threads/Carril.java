@@ -49,7 +49,7 @@ public class Carril {
 	}
 
 	/**
-	 * Tama��o del carril en numero de pasos
+	 * Tamaño del carril en numero de pasos
 	 * 
 	 * @return
 	 */
