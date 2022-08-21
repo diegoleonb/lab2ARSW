@@ -85,7 +85,7 @@ Taller.
     deberían dormirse, y cuando se haga clic en ‘Continue’ los mismos
     deberían despertarse y continuar con la carrera. Diseñe una solución que permita hacer esto utilizando los mecanismos de sincronización con las primitivas de los Locks provistos por el lenguaje (wait y notifyAll).
 
-    Se crean los metodos renaudar y pausar en la clase Galgo
+    Se crean los metodos reanudar y pausar en la clase Galgo
     ![](./img/media/parte4-1.png)
 
     Se llaman los metodos en la clase MainCanodromo especificamente en los listener para hacer el correcto funcionamiento del boton

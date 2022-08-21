@@ -19,6 +19,10 @@ public class Galgo extends Thread {
 		this.regl=reg;
 	}
 
+	/**
+	 * Funcion que permite la carrera por medio de condicionales para la verificacion de que no este pausado el hilo
+	 * @throws InterruptedException
+	 */
 	public void corra() throws InterruptedException {
 		while (paso < carril.size()) {			
 			Thread.sleep(100);
@@ -44,11 +48,18 @@ public class Galgo extends Thread {
 		}
 	}
 
+	/**
+	 * Funcion que modifica la bandera isPaused a falso y permite reanudar la carrera
+	 */
 	public synchronized void reanudar(){
 		isPaused = false;
 		notifyAll();
 	}
 
+	
+	/**
+	 * Funcion que modifica la bandera isPaused a verdadero lo que hace que se pause la carrera
+	 */
 	public synchronized void pausar(){
 		isPaused = true;
 	}
