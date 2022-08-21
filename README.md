@@ -76,6 +76,10 @@ Taller.
     regiones críticas sólo acceda un hilo a la vez. Verifique los
     resultados.
 
+    Se modifica la clase Galgo y se implementa synchronized
+    ![](./img/media/parte3-2.png)
+    ![](./img/media/parte3-1.png)
+
 4.  Implemente las funcionalidades de pausa y continuar. Con estas,
     cuando se haga clic en ‘Stop’, todos los hilos de los galgos
     deberían dormirse, y cuando se haga clic en ‘Continue’ los mismos
